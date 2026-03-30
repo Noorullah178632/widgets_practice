@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:widgets_revision/simple_widgets/images.dart';
+import 'package:widgets_revision/medium_widgets/screens.dart';
+import 'package:widgets_revision/simple_widgets/cutom_scroll_view_class.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: ImagesClass(),
+      home: Screens(),
     );
   }
 }
