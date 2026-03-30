@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_revision/simple_widgets/hero_image.dart';
 
 class ImagesClass extends StatefulWidget {
   const ImagesClass({super.key});
@@ -11,19 +12,27 @@ class _ImagesState extends State<ImagesClass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
+        mainAxisAlignment: .center,
+        crossAxisAlignment: .center,
         children: [
-          Image.network(
-            "https://as2.ftcdn.net/v2/jpg/02/92/95/17/1000_F_292951705_zv47wnXkjzHzSouYLpYcNgTOOosDv1ml.jpg",
-            errorBuilder: (context, error, stackTrace) {
-              return const Center(
-                child: Icon(Icons.error, color: Colors.red, size: 40),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HeroImage()),
               );
             },
-            loadingBuilder: (context, child, loadingProgress) {
-              if (loadingProgress == null) return child;
-              return CircularProgressIndicator(color: Colors.blue);
-            },
+            child: Hero(
+              tag: "my_pic",
+              child: Center(
+                child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("images/pic.png"),
+                ),
+              ),
+            ),
           ),
         ],
       ),
